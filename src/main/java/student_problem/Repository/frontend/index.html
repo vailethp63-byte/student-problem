@@ -1,0 +1,229 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Learning Resources</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-logo">SL</div>
+            <div>
+                <h2>StudentLearn</h2>
+                <p>Learning Resources Portal</p>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#resources">Resources</a>
+            <a href="#upload">Upload Resource</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="eyebrow">YOUR DIGITAL LEARNING SPACE</span>
+                <h1>Learn Better.<br><span>Share Knowledge.</span></h1>
+                <p>
+                    Discover notes, past papers, tutorials and other
+                    learning materials shared to support your studies.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#resources" class="btn primary">Explore Resources</a>
+                    <a href="#upload" class="btn secondary">Share a Resource</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <div class="book-icon">📚</div>
+                <h3>Knowledge for Everyone</h3>
+                <p>Find and share useful academic materials in one place.</p>
+                <div class="hero-stat">
+                    <span>Organized</span>
+                    <span>Accessible</span>
+                    <span>Collaborative</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <article class="stat-card">
+                <span class="stat-icon">📘</span>
+                <div>
+                    <p>Total Resources</p>
+                    <h2 id="totalResources">0</h2>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-icon">📄</span>
+                <div>
+                    <p>Notes</p>
+                    <h2 id="totalNotes">0</h2>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-icon">📝</span>
+                <div>
+                    <p>Past Papers</p>
+                    <h2 id="totalPapers">0</h2>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-icon">🎓</span>
+                <div>
+                    <p>Tutorials</p>
+                    <h2 id="totalTutorials">0</h2>
+                </div>
+            </article>
+        </section>
+
+        <section class="resources-section" id="resources">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">RESOURCE LIBRARY</span>
+                    <h2>Explore Learning Materials</h2>
+                    <p>Search and find resources for your studies.</p>
+                </div>
+            </div>
+
+            <div class="filters">
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search by title or course..."
+                >
+
+                <select id="typeFilter">
+                    <option value="">All resource types</option>
+                    <option value="Notes">Notes</option>
+                    <option value="Past Paper">Past Paper</option>
+                    <option value="Tutorial">Tutorial</option>
+                    <option value="Book">Book</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <button type="button" class="btn primary" id="searchBtn">
+                    Search
+                </button>
+            </div>
+
+            <div id="resourceMessage" class="message" aria-live="polite">
+                Resources will appear here when the backend is connected.
+            </div>
+
+            <div id="resourceList" class="resource-grid"></div>
+        </section>
+
+        <section class="upload-section" id="upload">
+            <div class="upload-intro">
+                <span class="eyebrow">CONTRIBUTE TO LEARNING</span>
+                <h2>Share a Learning Resource</h2>
+                <p>
+                    Add details about useful academic materials so they
+                    can be organized in the resource library.
+                </p>
+                <div class="upload-note">
+                    <strong>Before submitting</strong>
+                    <p>
+                        Use accurate resource details and only share files
+                        you are allowed to distribute.
+                    </p>
+                </div>
+            </div>
+
+            <form id="resourceForm" class="resource-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="title">Resource Title *</label>
+                        <input id="title" name="title" type="text"
+                            placeholder="e.g. Introduction to Networking"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resourceType">Resource Type *</label>
+                        <select id="resourceType" name="resourceType" required>
+                            <option value="">Select type</option>
+                            <option value="Notes">Notes</option>
+                            <option value="Past Paper">Past Paper</option>
+                            <option value="Tutorial">Tutorial</option>
+                            <option value="Book">Book</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description *</label>
+                    <textarea id="description" name="description"
+                        rows="4" placeholder="Describe this resource..."
+                        required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="courseName">Course or Subject *</label>
+                        <input id="courseName" name="courseName" type="text"
+                            placeholder="e.g. Computer Science" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="academicYear">Academic Year *</label>
+                        <input id="academicYear" name="academicYear"
+                            type="number" min="2000" max="2100"
+                            placeholder="e.g. 2026" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="uploadedBy">Your Name *</label>
+                        <input id="uploadedBy" name="uploadedBy" type="text"
+                            placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resourceFile">Resource File</label>
+                        <input id="resourceFile" name="resourceFile"
+                            type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt">
+                        <small>Optional. Accepted: PDF, Word, PowerPoint, TXT (max 20MB).</small>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn primary submit-btn">
+                    Submit Resource
+                </button>
+
+                <p id="formMessage" class="message" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section class="about-section" id="about">
+            <span class="eyebrow">ABOUT THE PLATFORM</span>
+            <h2>Learning Through Sharing</h2>
+            <p>
+                StudentLearn is designed to help students organize,
+                discover and share educational resources. The platform
+                will use a Spring Boot backend and PostgreSQL database.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 StudentLearn. Student Learning Resources Portal.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
